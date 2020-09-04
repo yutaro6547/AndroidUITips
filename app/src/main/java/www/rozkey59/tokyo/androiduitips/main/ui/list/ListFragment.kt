@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import www.rozkey59.tokyo.androiduitips.databinding.FragmentListBinding
 import www.rozkey59.tokyo.androiduitips.main.ui.model.cardElement
-import kotlin.random.Random
 
 class ListFragment: Fragment() {
 

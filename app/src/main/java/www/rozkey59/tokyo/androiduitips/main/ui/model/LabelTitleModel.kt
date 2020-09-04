@@ -18,10 +18,6 @@ abstract class LabelTitleModel: DataBindingModel<ItemLabelBinding>() {
     @EpoxyAttribute(DoNotHash)
     var titleClickListener: View.OnClickListener? = null
 
-    override fun getDefaultLayout(): Int {
-        return R.layout.item_label
-    }
-
     override fun bind(binding: ItemLabelBinding) {
         binding.apply {
             label.text = titleText

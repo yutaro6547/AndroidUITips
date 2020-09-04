@@ -18,10 +18,6 @@ abstract class CardElementModel: DataBindingModel<ItemCardBinding>() {
     @EpoxyAttribute(DoNotHash)
     var cardClickListener: View.OnClickListener? = null
 
-    override fun getDefaultLayout(): Int {
-        return R.layout.item_card
-    }
-
     override fun bind(binding: ItemCardBinding) {
         binding.apply {
             number.text = numberText
