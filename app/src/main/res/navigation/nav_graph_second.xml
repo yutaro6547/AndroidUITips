@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph_second">
+
+  <fragment
+      android:id="@+id/mainFragment"
+      android:name="www.rozkey59.tokyo.androiduitips.bottom_navigation_view.BottomNavigationViewFragment"
+      android:label="fragment_bottom_navigation_view"
+      tools:layout="@layout/activity_bottom_navigation_view"/>
+
+</navigation>

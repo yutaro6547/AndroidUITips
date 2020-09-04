@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string-array name="title_list">
+    <item>Carousel</item>
+    <item>Grid(2-Column)</item>
+    <item>Grid(3-Column)</item>
+    <item>BottomNavigationView</item>
+    <item>ComplexRecyclerView(Groupie)</item>
+    <item>Navigation</item>
+    <item>AccountInputForm</item>
+    <item>PasswordForm</item>
+    <item>BottomAppBar</item>
+    <item>TabPager</item>
+    <item>List</item>
+    <item>ComplexLayout</item>
+    <item>CoordinatorLayout</item>
+    <item>NavigationDrawer</item>
+    <item>OptionMenu</item>
+    <item>ToolBar</item>
+  </string-array>
+
+  <string-array name="navigation_list">
+    <item>Sample1</item>
+    <item>Sample2</item>
+    <item>Sample3</item>
+    <item>Sample4</item>
+    <item>Sample5</item>
+    <item>Sample6</item>
+    <item>Sample7</item>
+    <item>Sample8</item>
+    <item>Sample9</item>
+    <item>Sample10</item>
+  </string-array>
+
+  <array name="color_list">
+    <item>#F44336</item>
+    <item>#E91E63</item>
+    <item>#9C27B0</item>
+    <item>#673AB7</item>
+    <item>#3F51B5</item>
+    <item>#2196F3</item>
+    <item>#03A9F4</item>
+    <item>#00BCD4</item>
+    <item>#009688</item>
+    <item>#4CAF50</item>
+    <item>#8BC34A</item>
+    <item>#CDDC39</item>
+    <item>#FFEB3B</item>
+    <item>#FFC107</item>
+    <item>#FF9800</item>
+    <item>#FF5722</item>
+    <item>#795548</item>
+    <item>#9E9E9E</item>
+  </array>
+
+  <integer-array name="image_list">
+    <item>@drawable/anker</item>
+    <item>@drawable/iphone</item>
+    <item>@drawable/famicom</item>
+    <item>@drawable/gas</item>
+    <item>@drawable/camera</item>
+  </integer-array>
+
+</resources>

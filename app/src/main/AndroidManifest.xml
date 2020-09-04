@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="www.rozkey59.tokyo.androiduitips">
+
+  <application
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+    <activity android:name=".main.MainActivity"
+              android:screenOrientation="portrait">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity android:name=".carousel.CarouselActivity"
+              android:screenOrientation="portrait"
+        />
+    <activity android:name=".grid.two.GridTwoColumnActivity"
+              android:screenOrientation="portrait"
+        />
+    <activity android:name=".grid.three.GridThreeColumnActivity"
+              android:screenOrientation="portrait"
+        />
+    <activity android:name=".bottom_navigation_view.BottomNavigationViewActivity"
+              android:screenOrientation="portrait"
+        />
+    <activity android:name=".groupie.GroupieSampleActivity"
+              android:screenOrientation="portrait"
+        />
+  </application>
+
+</manifest>

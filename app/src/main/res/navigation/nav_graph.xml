@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@+id/mainFragment">
+
+  <fragment
+      android:id="@+id/mainFragment"
+      android:name="www.rozkey59.tokyo.androiduitips.main.MainFragment"
+      android:label="fragment_main"
+      tools:layout="@layout/activity_main"/>
+
+  <fragment
+    android:id="@+id/navigationSampleFragment"
+    android:name="www.rozkey59.tokyo.androiduitips.navigation.NavigationSampleFragment"
+    android:label="fragment_navigation_sample"
+    >
+    <action
+        android:id="@+id/action_navigationSampleFragment_to_sampleScreen1Fragment"
+        app:destination="@id/sampleScreen1Fragment"/>
+  </fragment>
+
+  <fragment
+      android:id="@+id/sampleScreen1Fragment"
+      android:name="www.rozkey59.tokyo.androiduitips.navigation.SampleScreen1Fragment"
+      android:label="fragment_sample_screen1"
+    />
+
+  <fragment
+      android:id="@+id/sampleScreen2Fragment"
+      android:name="www.rozkey59.tokyo.androiduitips.navigation.SampleScreen2Fragment"
+      android:label="fragment_sample_screen2"
+    />
+
+  <fragment
+      android:id="@+id/passwordFragment"
+      android:name="www.rozkey59.tokyo.androiduitips.password.PasswordFragment"
+      android:label="fragment_password"
+    />
+
+  <navigation
+      android:id="@+id/nav_graph_carousel"
+      app:startDestination="@+id/carouselActivity"
+      >
+
+    <activity
+        android:id="@+id/carouselActivity"
+        android:name="www.rozkey59.tokyo.androiduitips.carousel.CarouselActivity"
+        android:label="activity_carousel"
+        tools:layout="@layout/activity_carousel"
+        />
+
+  </navigation>
+
+  <navigation
+      android:id="@+id/nav_graph_grid_2"
+      app:startDestination="@+id/gridTwoColumnctivity"
+      >
+
+    <activity
+        android:id="@+id/gridTwoColumnctivity"
+        android:name="www.rozkey59.tokyo.androiduitips.grid.two.GridTwoColumnActivity"
+        android:label="activity_grid_two_column"
+        tools:layout="@layout/activity_grid_two_column"
+        />
+
+  </navigation>
+
+  <navigation
+      android:id="@+id/nav_graph_grid_3"
+      app:startDestination="@+id/gridThreeColumnctivity"
+      >
+
+    <activity
+        android:id="@+id/gridThreeColumnctivity"
+        android:name="www.rozkey59.tokyo.androiduitips.grid.three.GridThreeColumnActivity"
+        android:label="activity_grid_three_column"
+        tools:layout="@layout/activity_grid_three_column"
+        />
+
+  </navigation>
+
+  <navigation
+      android:id="@+id/nav_graph_bottom_navigation"
+      app:startDestination="@+id/bottomNavigationViewActivity"
+      >
+
+    <activity
+        android:id="@+id/bottomNavigationViewActivity"
+        android:name="www.rozkey59.tokyo.androiduitips.bottom_navigation_view.BottomNavigationViewActivity"
+        android:label="activity_bottom_navigation_view"
+        tools:layout="@layout/activity_bottom_navigation_view"
+        />
+
+  </navigation>
+
+  <navigation
+      android:id="@+id/nav_graph_groupie"
+      app:startDestination="@+id/groupieSampleActivity"
+      >
+
+    <activity
+        android:id="@+id/groupieSampleActivity"
+        android:name="www.rozkey59.tokyo.androiduitips.groupie.GroupieSampleActivity"
+        android:label="activity_groupie_sample"
+        tools:layout="@layout/activity_groupie_sample"
+        />
+
+  </navigation>
+
+</navigation>
