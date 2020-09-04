@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -29,6 +28,9 @@ android {
     dataBinding {
         enabled = true
     }
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -54,9 +56,10 @@ dependencies {
     // SnapHelper For setting Start
     implementation 'com.github.rubensousa:gravitysnaphelper:2.0'
 
-    // Groupie
-    implementation 'com.xwray:groupie:2.3.0'
-    implementation 'com.xwray:groupie-databinding:2.3.0'
+    // Epoxy
+    implementation 'com.airbnb.android:epoxy:3.11.0'
+    implementation 'com.airbnb.android:epoxy-databinding:3.11.0'
+    kapt 'com.airbnb.android:epoxy-processor:3.11.0'
 
     // Reactive Programming
     implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
