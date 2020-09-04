@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_label.*
@@ -21,8 +22,7 @@ class MainFragment: Fragment() {
     private lateinit var binding: FragmentMainBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate(inflater,
-            R.layout.fragment_main, container, false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -41,7 +41,7 @@ class MainFragment: Fragment() {
                         id("$LABEL_TITLE_ID/${element.title}")
                         titleText(element.title)
                         titleClickListener { _ ->
-                            Toast.makeText(requireContext(), "Not implements.", Toast.LENGTH_SHORT).show()
+                            switchFragment(element.id)
                         }
                     }
                 }
@@ -49,13 +49,17 @@ class MainFragment: Fragment() {
         }
     }
 
-    private fun createDataList(): List<MainListData> {
-        val dataList = mutableListOf<MainListData>()
-        val titleList = resources.getStringArray(R.array.title_list)
-        for (element in titleList) {
-            dataList.add(MainListData(element))
+    private fun switchFragment(id: Int) {
+        val navController = findNavController()
+        if (navController.currentDestination?.id != R.id.mainFragment) return
+        when(id) {
+            0 -> navController.navigate(MainFragmentDirections.actionMainFragmentToListFragment())
+            else -> Toast.makeText(requireContext(), "Not implements.", Toast.LENGTH_SHORT).show()
         }
-        return dataList
+    }
+
+    private fun createDataList(): List<MainListData> {
+        return resources.getStringArray(R.array.title_list).mapIndexed { index, title -> MainListData(index, title) }
     }
 
     companion object {

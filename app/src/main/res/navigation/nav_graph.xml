@@ -7,6 +7,13 @@
   <fragment
       android:id="@+id/mainFragment"
       android:name="www.rozkey59.tokyo.androiduitips.main.MainFragment"
-      android:label="fragment_main" />
-
+      android:label="fragment_main" >
+    <action
+        android:id="@+id/action_mainFragment_to_listFragment"
+        app:destination="@id/listFragment" />
+  </fragment>
+  <fragment
+      android:id="@+id/listFragment"
+      android:name="www.rozkey59.tokyo.androiduitips.main.ui.list.ListFragment"
+      android:label="ListFragment" />
 </navigation>

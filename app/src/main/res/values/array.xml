@@ -2,7 +2,7 @@
 <resources>
 
   <string-array name="title_list">
-    <item>Carousel</item>
+    <item>List</item>
     <item>Carousel</item>
     <item>Carousel</item>
   </string-array>
