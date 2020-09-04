@@ -55,6 +55,7 @@ class MainFragment: Fragment() {
         when(id) {
             0 -> navController.navigate(MainFragmentDirections.actionMainFragmentToListFragment())
             1 -> navController.navigate(MainFragmentDirections.actionMainFragmentToGridFragment())
+            2 -> navController.navigate(MainFragmentDirections.actionMainFragmentToCarouselFragment())
             else -> Toast.makeText(requireContext(), "Not implements.", Toast.LENGTH_SHORT).show()
         }
     }

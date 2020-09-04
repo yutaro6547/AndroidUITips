@@ -15,11 +15,18 @@ abstract class LabelTitleModel: DataBindingModel<ItemLabelBinding>() {
     @EpoxyAttribute
     var titleText: String = ""
 
+    @JvmField
+    @EpoxyAttribute
+    var shouldHideRightArrowIcon: Boolean = false
+
     @EpoxyAttribute(DoNotHash)
     var titleClickListener: View.OnClickListener? = null
 
     override fun bind(binding: ItemLabelBinding) {
         binding.apply {
+            if (shouldHideRightArrowIcon) {
+                label.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
+            }
             label.text = titleText
             label.setOnClickListener(titleClickListener)
         }
