@@ -2,35 +2,9 @@
 <resources>
 
   <string-array name="title_list">
-    <item>Carousel</item>
-    <item>Grid(2-Column)</item>
-    <item>Grid(3-Column)</item>
-    <item>BottomNavigationView</item>
-    <item>ComplexRecyclerView(Groupie)</item>
-    <item>Navigation</item>
-    <item>AccountInputForm</item>
-    <item>PasswordForm</item>
-    <item>BottomAppBar</item>
-    <item>TabPager</item>
     <item>List</item>
-    <item>ComplexLayout</item>
-    <item>CoordinatorLayout</item>
-    <item>NavigationDrawer</item>
-    <item>OptionMenu</item>
-    <item>ToolBar</item>
-  </string-array>
-
-  <string-array name="navigation_list">
-    <item>Sample1</item>
-    <item>Sample2</item>
-    <item>Sample3</item>
-    <item>Sample4</item>
-    <item>Sample5</item>
-    <item>Sample6</item>
-    <item>Sample7</item>
-    <item>Sample8</item>
-    <item>Sample9</item>
-    <item>Sample10</item>
+    <item>Grid</item>
+    <item>Carousel</item>
   </string-array>
 
   <array name="color_list">

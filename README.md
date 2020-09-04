@@ -1,9 +1,10 @@
 # AndroidUITips
 UI Implementation Tips For Android
 
-Android エンジニアのために私のUIの実装についてまとめたもの
+Commentary will be provided on the following blog
 
+Androidアプリ開発における私のUIの実装についてまとめたサンプル
 
-[English Manual](https://github.com/yutaro6547/AndroidUITips/blob/master/manual/ENGLISHMANUAL.md)
+解説は下記のブログにて行います
 
-[Japanese Manual](https://github.com/yutaro6547/AndroidUITips/blob/master/manual/JAPANESEMANUAL.md)
+[Be simple](https://www.rozkey59.tokyo/archive/category/Android)
