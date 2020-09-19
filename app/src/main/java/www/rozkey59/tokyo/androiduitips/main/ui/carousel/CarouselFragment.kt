@@ -55,7 +55,6 @@ class CarouselFragment: Fragment() {
                 carousel {
                     id(LABEL_CAROUSEL_ID)
                     models(carouselElementsList)
-                    spanSizeOverride { _, _, _ -> COLUMN1 }
                 }
                 labelTitle {
                     id(LABEL_TITLE_ID)
