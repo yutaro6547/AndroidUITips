@@ -5,6 +5,7 @@
     <item>List</item>
     <item>Grid</item>
     <item>Carousel</item>
+    <item>BottomNavigation</item>
   </string-array>
 
   <array name="color_list">

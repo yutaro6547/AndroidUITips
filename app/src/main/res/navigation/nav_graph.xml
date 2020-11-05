@@ -17,6 +17,9 @@
     <action
         android:id="@+id/action_mainFragment_to_carouselFragment"
         app:destination="@id/carouselFragment" />
+    <action
+        android:id="@+id/action_mainFragment_to_bottomNavigationFragment"
+        app:destination="@id/bottomNavigationFragment" />
   </fragment>
   <fragment
       android:id="@+id/listFragment"
@@ -30,4 +33,8 @@
       android:id="@+id/carouselFragment"
       android:name="www.rozkey59.tokyo.androiduitips.main.ui.carousel.CarouselFragment"
       android:label="CarouselFragment" />
+  <fragment
+      android:id="@+id/bottomNavigationFragment"
+      android:name="www.rozkey59.tokyo.androiduitips.main.ui.bottom.BottomNavigationFragment"
+      android:label="BottomNavigationFragment" />
 </navigation>

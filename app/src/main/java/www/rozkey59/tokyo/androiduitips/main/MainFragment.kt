@@ -56,6 +56,7 @@ class MainFragment: Fragment() {
             0 -> navController.navigate(MainFragmentDirections.actionMainFragmentToListFragment())
             1 -> navController.navigate(MainFragmentDirections.actionMainFragmentToGridFragment())
             2 -> navController.navigate(MainFragmentDirections.actionMainFragmentToCarouselFragment())
+            3 -> navController.navigate(MainFragmentDirections.actionMainFragmentToBottomNavigationFragment())
             else -> Toast.makeText(requireContext(), "Not implements.", Toast.LENGTH_SHORT).show()
         }
     }
