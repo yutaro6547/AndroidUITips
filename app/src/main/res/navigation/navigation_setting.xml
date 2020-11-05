@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation_home">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation_home"
+    app:startDestination="@id/unitCarouselListFragment">
+  <fragment
+      android:id="@+id/unitCarouselListFragment"
+      android:name="www.rozkey59.tokyo.androiduitips.main.ui.bottom.UnitCarouselListFragment"
+      android:label="UnitCarouselListFragment" />
 </navigation>

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation_home">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation_home"
+    app:startDestination="@id/unitListFragment">
 
+  <fragment
+      android:id="@+id/unitListFragment"
+      android:name="www.rozkey59.tokyo.androiduitips.main.ui.bottom.UnitListFragment"
+      android:label="UnitListFragment" />
 </navigation>

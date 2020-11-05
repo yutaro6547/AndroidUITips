@@ -24,6 +24,10 @@ class BottomNavigationActivity: AppCompatActivity() {
         setUpBottomNavigation()
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        return currentNavController?.value?.navigateUp() ?: false
+    }
+
     private fun setUpBottomNavigation() {
         binding.bottomNavigation.inflateMenu(R.menu.bottom_navigation_menu)
         val controller = binding.bottomNavigation.setupWithNavController(
