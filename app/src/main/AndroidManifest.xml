@@ -17,21 +17,8 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".carousel.CarouselActivity"
-              android:screenOrientation="portrait"
-        />
-    <activity android:name=".grid.two.GridTwoColumnActivity"
-              android:screenOrientation="portrait"
-        />
-    <activity android:name=".grid.three.GridThreeColumnActivity"
-              android:screenOrientation="portrait"
-        />
-    <activity android:name=".bottom_navigation_view.BottomNavigationViewActivity"
-              android:screenOrientation="portrait"
-        />
-    <activity android:name=".groupie.GroupieSampleActivity"
-              android:screenOrientation="portrait"
-        />
+    <activity android:name=".main.ui.bottom.BottomNavigationActivity"
+        android:screenOrientation="portrait"/>
   </application>
 
 </manifest>
