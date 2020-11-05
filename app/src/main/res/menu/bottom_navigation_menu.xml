@@ -6,11 +6,6 @@
       android:title="home"
       />
   <item
-      android:id="@+id/android"
-      android:icon="@drawable/ic_android"
-      android:title="android"
-      />
-  <item
       android:id="@+id/mail"
       android:icon="@drawable/ic_mail"
       android:title="mail"
