@@ -1,5 +1,7 @@
 package www.rozkey59.tokyo.androiduitips.main.ui.model
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.view.View
 import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyAttribute.Option.DoNotHash
@@ -9,6 +11,7 @@ import www.rozkey59.tokyo.androiduitips.R
 import www.rozkey59.tokyo.androiduitips.databinding.ItemCardBinding
 import www.rozkey59.tokyo.androiduitips.main.ui.other.DataBindingModel
 
+@SuppressLint("NonConstantResourceId")
 @EpoxyModelClass(layout = R.layout.item_card)
 abstract class CardElementModel: DataBindingModel<ItemCardBinding>() {
 
@@ -18,14 +21,18 @@ abstract class CardElementModel: DataBindingModel<ItemCardBinding>() {
     @EpoxyAttribute(DoNotHash)
     var cardClickListener: View.OnClickListener? = null
 
-    override fun bind(binding: ItemCardBinding) {
+    override fun bind(binding: ItemCardBinding, context: Context) {
         binding.apply {
             number.text = numberText
             card.setOnClickListener(cardClickListener)
         }
     }
 
-    override fun bindUpdating(binding: ItemCardBinding, previouslyBoundModel: EpoxyModel<*>?) {
+    override fun bind(
+        binding: ItemCardBinding,
+        context: Context,
+        previouslyBoundModel: EpoxyModel<*>?
+    ) {
         binding.apply {
             number.text = "Updating$numberText"
             card.setOnClickListener(cardClickListener)

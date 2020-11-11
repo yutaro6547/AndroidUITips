@@ -1,35 +1,35 @@
 package www.rozkey59.tokyo.androiduitips.main.ui.other
 
+import android.content.Context
 import androidx.databinding.ViewDataBinding
-import com.airbnb.epoxy.DataBindingEpoxyModel
 import com.airbnb.epoxy.EpoxyModel
+import com.airbnb.epoxy.EpoxyModelWithHolder
 
-abstract class DataBindingModel<in T : ViewDataBinding> : DataBindingEpoxyModel() {
+abstract class DataBindingModel<in T : ViewDataBinding> : EpoxyModelWithHolder<DataBindingEpoxyHolder>() {
 
-    abstract fun bind(binding: T)
+    abstract fun bind(binding: T, context: Context)
 
-    abstract fun bindUpdating(binding: T, previouslyBoundModel: EpoxyModel<*>?)
+    abstract fun bind(binding: T, context: Context, previouslyBoundModel: EpoxyModel<*>?)
 
     abstract fun unbind(binding: T)
 
     @Suppress("UNCHECKED_CAST")
-    override fun setDataBindingVariables(dataBinding: ViewDataBinding?) {
-        val binding = dataBinding as? T ?: return
-        bind(binding)
+    override fun bind(holder: DataBindingEpoxyHolder) {
+        val binding = holder.binding as? T ?: return
+        val context = binding.root.context
+        bind(binding, context)
     }
 
     @Suppress("UNCHECKED_CAST")
-    override fun setDataBindingVariables(
-        dataBinding: ViewDataBinding?,
-        previouslyBoundModel: EpoxyModel<*>?
-    ) {
-        val binding = dataBinding as? T ?: return
-        bindUpdating(binding, previouslyBoundModel)
+    override fun bind(holder: DataBindingEpoxyHolder, previouslyBoundModel: EpoxyModel<*>) {
+        val binding = holder.binding as? T ?: return
+        val context = binding.root.context
+        bind(binding, context, previouslyBoundModel)
     }
 
     @Suppress("UNCHECKED_CAST")
-    override fun unbind(holder: DataBindingHolder) {
-        val binding = holder.dataBinding as? T ?: return
+    override fun unbind(holder: DataBindingEpoxyHolder) {
+        val binding = holder.binding as? T ?: return
         unbind(binding)
     }
 }
