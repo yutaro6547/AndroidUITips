@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import www.rozkey59.tokyo.androiduitips.databinding.FragmentListBinding
 import www.rozkey59.tokyo.androiduitips.main.ui.model.cardElement
@@ -13,7 +14,7 @@ import www.rozkey59.tokyo.androiduitips.main.ui.model.cardElement
 class ListFragment: Fragment() {
 
     private lateinit var binding: FragmentListBinding
-    private val dataList = mutableListOf<Pair<Int, String>>()
+    private lateinit var viewModel: ListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,41 +27,28 @@ class ListFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initializeData()
+        viewModel = ListViewModel()
         binding.apply {
             recyclerView.itemAnimator = null
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             fab.setOnClickListener {
-                val newList = dataList.map { pair ->
-                    if (pair.first == 0) {
-                        pair.first to "Data!"
-                    } else {
-                        pair
-                    }
-                }
-                dataList.clear()
-                dataList.addAll(newList)
                 recyclerView.requestModelBuild()
             }
-            recyclerView.withModels {
-                dataList.forEach {
-                    val (index, data) = it
+        }
+        viewModel.getGitHubRepositoryData()
+        viewModel.uiLive.observe(viewLifecycleOwner, Observer { list ->
+            binding.recyclerView.withModels {
+                list.forEach {
                     cardElement {
-                        id(LABEL_CARD_ID, "$index")
-                        numberText(data)
+                        id(LABEL_CARD_ID, "${it.id}")
+                        numberText(it.name)
                         cardClickListener { _ ->
-                            Toast.makeText(requireContext(), "Press $data!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), "Press ${it.name}!", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             }
-        }
-    }
-
-    private fun initializeData() {
-        for(i in 0..10) {
-            dataList.add(i to i.toString())
-        }
+        })
     }
 
     companion object {
