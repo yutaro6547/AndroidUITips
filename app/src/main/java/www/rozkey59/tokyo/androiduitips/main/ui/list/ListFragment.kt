@@ -46,7 +46,7 @@ class ListFragment: Fragment() {
             recyclerView.itemAnimator = null
             recyclerView.layoutManager = SpeedConstraintGridLayoutManager(requireContext(), SPAN_COUNT)
             fab.setOnClickListener {
-                viewModel.getGitHubRepositoryData(INITIAL)
+                viewModel.getGitHubRepositoryData(INITIAL, true)
             }
         }
         viewModel.getGitHubRepositoryData(INITIAL)
@@ -55,7 +55,7 @@ class ListFragment: Fragment() {
         })
     }
 
-    private fun updateViews(uiState: UiState, data: List<UiData>?) {
+    private fun updateViews(uiState: UiState, data: UiData?) {
         when(uiState) {
             UiState.BLANK, UiState.PARTIAL -> Unit
             UiState.ERROR -> {
@@ -65,14 +65,15 @@ class ListFragment: Fragment() {
                 binding.progressBar.visibility = View.VISIBLE
             }
             UiState.IDEAL -> {
-                val list = data ?: throw IllegalArgumentException("Illegal results are being returned. Please review the communication.")
+                val uiData = data ?: throw IllegalArgumentException("Illegal results are being returned. Please review the communication.")
+                val list = uiData.list
                 binding.progressBar.visibility = View.GONE
                 binding.recyclerView.withModels {
                     val carouselList = list.map {
                         ContributorsModel_()
                             .apply {
                                 id(CONTRIBUTORS_ID, "${it.id}")
-                                uiData(it)
+                                listData(it)
                                 onRootClickListener { _ ->
                                     Toast.makeText(requireContext(), "Press ${it.name}!", Toast.LENGTH_SHORT).show()
                                 }
@@ -93,7 +94,7 @@ class ListFragment: Fragment() {
                     gridList.forEach {
                         grid {
                             id(GRID_ID, "${it.id}")
-                            uiData(it)
+                            listData(it)
                             spanSizeOverride { _, _, _ -> COLUMN2 }
                             onRootClickListener { _ ->
                                 Toast.makeText(requireContext(), "Press ${it.name}!", Toast.LENGTH_SHORT).show()
@@ -104,9 +105,10 @@ class ListFragment: Fragment() {
                     list.forEach {
                         listRow {
                             id(LIST_ROW_ID, "${it.id}")
-                            uiData(it)
+                            listData(it)
+                            isChanged(data.isChanged)
                             spanSizeOverride { _, _, _ -> COLUMN1 }
-                            cardClickListener { _ ->
+                            onRootClicked { _ ->
                                 Toast.makeText(requireContext(), "Press ${it.name}!", Toast.LENGTH_SHORT).show()
                             }
                         }

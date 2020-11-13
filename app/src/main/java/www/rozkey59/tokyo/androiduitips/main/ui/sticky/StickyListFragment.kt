@@ -14,6 +14,7 @@ import www.rozkey59.tokyo.androiduitips.databinding.FragmentStickyListBinding
 import www.rozkey59.tokyo.androiduitips.main.ui.model.StickyHeaderModel_
 import www.rozkey59.tokyo.androiduitips.main.ui.model.stickyContents
 import www.rozkey59.tokyo.androiduitips.main.ui.model.stickyHeader
+import www.rozkey59.tokyo.androiduitips.main.ui.other.ListData
 import www.rozkey59.tokyo.androiduitips.main.ui.other.UiData
 import java.lang.IllegalArgumentException
 
@@ -21,7 +22,7 @@ class StickyListFragment: Fragment() {
 
     private lateinit var binding: FragmentStickyListBinding
     private lateinit var viewModel: StickyListViewModel
-    private lateinit var stickyHeaderController: TypedEpoxyController<List<UiData>>
+    private lateinit var stickyHeaderController: TypedEpoxyController<List<ListData>>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,8 +40,8 @@ class StickyListFragment: Fragment() {
 
     private fun setUp() {
         viewModel = StickyListViewModel()
-        stickyHeaderController = object : TypedEpoxyController<List<UiData>>() {
-            override fun buildModels(data: List<UiData>) {
+        stickyHeaderController = object : TypedEpoxyController<List<ListData>>() {
+            override fun buildModels(data: List<ListData>) {
                 data.forEach {
                     stickyHeader {
                         id(STICKY_HEADER_ID, "${it.id}Header")
@@ -52,7 +53,7 @@ class StickyListFragment: Fragment() {
 
                     stickyContents {
                         id(STICKY_CONTENTS_ID, "${it.id}")
-                        uiData(it)
+                        listData(it)
                         onRootClickListener { _ ->
                             Toast.makeText(requireContext(), "Press ${it.description}!", Toast.LENGTH_SHORT).show()
                         }
@@ -75,7 +76,7 @@ class StickyListFragment: Fragment() {
         })
     }
 
-    private fun updateViews(uiState: UiState, data: List<UiData>?) {
+    private fun updateViews(uiState: UiState, data: UiData?) {
         when(uiState) {
             UiState.BLANK, UiState.PARTIAL -> Unit
             UiState.ERROR -> {
@@ -85,9 +86,9 @@ class StickyListFragment: Fragment() {
                 binding.progressBar.visibility = View.VISIBLE
             }
             UiState.IDEAL -> {
-                val list = data ?: throw IllegalArgumentException("Illegal results are being returned. Please review the communication.")
+                val uiData = data ?: throw IllegalArgumentException("Illegal results are being returned. Please review the communication.")
                 binding.progressBar.visibility = View.GONE
-                stickyHeaderController.setData(list)
+                stickyHeaderController.setData(uiData.list)
             }
         }
     }
