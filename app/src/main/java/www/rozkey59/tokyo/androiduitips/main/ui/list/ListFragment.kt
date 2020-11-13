@@ -9,7 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.airbnb.epoxy.Carousel
-import com.airbnb.epoxy.carousel
+import com.airbnb.epoxy.ModelCollector
+import www.rozkey59.tokyo.androiduitips.core.ui.other.DisableSnapHelperCarouselBuilder
+import www.rozkey59.tokyo.androiduitips.core.ui.other.DisableSnapHelperCarouselModel_
 import www.rozkey59.tokyo.androiduitips.core.ui.other.SpeedConstraintGridLayoutManager
 import www.rozkey59.tokyo.androiduitips.core.ui.other.UiState
 import www.rozkey59.tokyo.androiduitips.databinding.FragmentListBinding
@@ -77,7 +79,7 @@ class ListFragment: Fragment() {
                             }
                     }
 
-                    carousel {
+                    customCarousel {
                         val margin12 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 12F, resources.displayMetrics).toInt()
                         val margin16 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16F, resources.displayMetrics).toInt()
                         id(CAROUSEL_ID)
@@ -112,6 +114,12 @@ class ListFragment: Fragment() {
                 }
             }
         }
+    }
+
+    private fun ModelCollector.customCarousel(builder: DisableSnapHelperCarouselBuilder.() -> Unit) : DisableSnapHelperCarouselModel_ {
+        val carouselBuilder = DisableSnapHelperCarouselBuilder().apply { builder() }
+        add(carouselBuilder.disableSnapHelperCarousel)
+        return carouselBuilder.disableSnapHelperCarousel
     }
 
     companion object {
