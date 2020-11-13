@@ -1,3 +1,3 @@
-package www.rozkey59.tokyo.androiduitips.main.ui.other
+package www.rozkey59.tokyo.androiduitips.core.ui.epoxy
 
 class DataBindingLayoutException : IllegalArgumentException("View is not a binding layout")

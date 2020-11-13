@@ -9,7 +9,7 @@ class GitHubRepository {
         return GitHubClient()
     }
 
-    suspend fun getRepositories(): Flow<List<GitHubRepositoryRes>> {
-        return clientBuilder().getRepositories()
+    suspend fun getRepositories(since: Int): Flow<List<GitHubRepositoryRes>> {
+        return clientBuilder().getRepositories(since)
     }
 }

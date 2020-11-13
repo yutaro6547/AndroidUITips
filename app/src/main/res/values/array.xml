@@ -3,8 +3,7 @@
 
   <string-array name="title_list">
     <item>List</item>
-    <item>Grid</item>
-    <item>Carousel</item>
+    <item>StickyHeader</item>
   </string-array>
 
   <array name="color_list">
