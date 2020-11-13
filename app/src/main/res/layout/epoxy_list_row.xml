@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/userIcon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:background="#AAAAAA"
+        android:layout_margin="16dp"
+        android:backgroundTintMode="multiply"
+        app:riv_mutate_background="true"
+        app:riv_corner_radius="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:gravity="start"
+        android:textColor="#212121"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="@+id/userIcon"
+        app:layout_constraintStart_toEndOf="@+id/userIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="name"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="start"
+        android:textColor="#484848"
+        android:textSize="16sp"
+        android:maxLines="3"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintStart_toEndOf="@+id/userIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="User Description"/>
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="start"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:background="#087f23"
+        android:maxLines="1"
+        android:padding="4dp"
+        android:text="Changed"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

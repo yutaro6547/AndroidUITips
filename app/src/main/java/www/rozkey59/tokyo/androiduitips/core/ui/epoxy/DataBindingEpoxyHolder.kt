@@ -1,4 +1,4 @@
-package www.rozkey59.tokyo.androiduitips.main.ui.other
+package www.rozkey59.tokyo.androiduitips.core.ui.epoxy
 
 import android.view.View
 import androidx.annotation.CallSuper
