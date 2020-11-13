@@ -11,25 +11,24 @@ import com.airbnb.epoxy.EpoxyModelClass
 import com.bumptech.glide.Glide
 import www.rozkey59.tokyo.androiduitips.R
 import www.rozkey59.tokyo.androiduitips.core.ui.epoxy.DataBindingModel
-import www.rozkey59.tokyo.androiduitips.databinding.EpoxyGridBinding
 import www.rozkey59.tokyo.androiduitips.databinding.EpoxyStickyContentsBinding
-import www.rozkey59.tokyo.androiduitips.main.ui.other.UiData
+import www.rozkey59.tokyo.androiduitips.main.ui.other.ListData
 
 @SuppressLint("NonConstantResourceId")
 @EpoxyModelClass(layout = R.layout.epoxy_sticky_contents)
 abstract class StickyContentsModel: DataBindingModel<EpoxyStickyContentsBinding>() {
 
     @EpoxyAttribute
-    lateinit var uiData: UiData
+    lateinit var listData: ListData
 
     @EpoxyAttribute(DoNotHash)
     var onRootClickListener: View.OnClickListener? = null
 
     override fun bind(binding: EpoxyStickyContentsBinding, context: Context) {
         binding.apply {
-            description.text = uiData.description ?: "No Description."
+            description.text = listData.description ?: "No Description."
             Glide.with(context)
-                .load(uiData.userUrl)
+                .load(listData.userUrl)
                 .centerCrop()
                 .into(userIcon)
             userIcon.setColorFilter(R.color.black_transparent, PorterDuff.Mode.SRC_ATOP)

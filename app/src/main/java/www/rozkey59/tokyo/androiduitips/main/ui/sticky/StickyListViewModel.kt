@@ -13,23 +13,22 @@ import www.rozkey59.tokyo.androiduitips.main.ui.other.UiData
 class StickyListViewModel : ViewModel() {
 
     private fun repositoryBuilder() = GitHubRepository()
-    val uiLive = MutableLiveData<Pair<UiState, List<UiData>?>>()
+    val uiLive = MutableLiveData<Pair<UiState, UiData?>>()
+    private var uiData = UiData(
+        list = mutableListOf(),
+        isChanged = false
+    )
 
     fun getGitHubRepositoryData(since: Int) {
         viewModelScope.launch {
             uiLive.postValue(UiState.LOADING to null)
             repositoryBuilder().getRepositories(since).collect { response ->
                 try {
-                    val list = response.map {
-                        UiData(
-                            id = it.id,
-                            name = it.name,
-                            userUrl = it.owner.avatarUrl,
-                            description = it.description,
-                            issueEventsUrl = it.issueEventsUrl
-                        )
-                    }
-                    uiLive.postValue(UiState.IDEAL to list)
+                    uiData = uiData.copy(
+                        list = response,
+                        isChanged = false
+                    )
+                    uiLive.postValue(UiState.IDEAL to uiData)
                 } catch (e: HttpException) {
                     uiLive.postValue(UiState.ERROR to null)
                 }
