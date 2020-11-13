@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/userIcon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:background="#AAAAAA"
+        android:layout_margin="16dp"
+        android:backgroundTintMode="multiply"
+        app:riv_mutate_background="true"
+        app:riv_corner_radius="24dp"
+        app:layout_constraintDimensionRatio="w, 1:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:gravity="start"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/userIcon"
+        app:layout_constraintBottom_toTopOf="@+id/description"
+        tools:text="name"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="start"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:maxLines="2"
+        app:layout_constraintStart_toStartOf="@+id/userIcon"
+        app:layout_constraintEnd_toEndOf="@+id/userIcon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="User Description"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

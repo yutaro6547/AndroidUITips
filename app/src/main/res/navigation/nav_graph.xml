@@ -12,22 +12,15 @@
         android:id="@+id/action_mainFragment_to_listFragment"
         app:destination="@id/listFragment" />
     <action
-        android:id="@+id/action_mainFragment_to_gridFragment"
-        app:destination="@id/gridFragment" />
-    <action
-        android:id="@+id/action_mainFragment_to_carouselFragment"
-        app:destination="@id/carouselFragment" />
+        android:id="@+id/action_mainFragment_to_stickyListFragment"
+        app:destination="@id/stickyListFragment" />
   </fragment>
   <fragment
       android:id="@+id/listFragment"
       android:name="www.rozkey59.tokyo.androiduitips.main.ui.list.ListFragment"
       android:label="ListFragment" />
   <fragment
-      android:id="@+id/gridFragment"
-      android:name="www.rozkey59.tokyo.androiduitips.main.ui.grid.GridFragment"
-      android:label="GridFragment" />
-  <fragment
-      android:id="@+id/carouselFragment"
-      android:name="www.rozkey59.tokyo.androiduitips.main.ui.carousel.CarouselFragment"
-      android:label="CarouselFragment" />
+      android:id="@+id/stickyListFragment"
+      android:name="www.rozkey59.tokyo.androiduitips.main.ui.sticky.StickyListFragment"
+      android:label="StickyListFragment" />
 </navigation>

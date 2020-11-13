@@ -1,4 +1,4 @@
-package www.rozkey59.tokyo.androiduitips.main.ui.list
+package www.rozkey59.tokyo.androiduitips.main.ui.sticky
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,7 +10,7 @@ import www.rozkey59.tokyo.androiduitips.core.ui.other.UiState
 import www.rozkey59.tokyo.androiduitips.main.infra.GitHubRepository
 import www.rozkey59.tokyo.androiduitips.main.ui.other.UiData
 
-class ListViewModel : ViewModel() {
+class StickyListViewModel : ViewModel() {
 
     private fun repositoryBuilder() = GitHubRepository()
     val uiLive = MutableLiveData<Pair<UiState, List<UiData>?>>()
