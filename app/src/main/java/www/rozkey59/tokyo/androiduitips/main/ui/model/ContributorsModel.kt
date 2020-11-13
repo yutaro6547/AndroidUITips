@@ -11,23 +11,23 @@ import com.bumptech.glide.Glide
 import www.rozkey59.tokyo.androiduitips.R
 import www.rozkey59.tokyo.androiduitips.core.ui.epoxy.DataBindingModel
 import www.rozkey59.tokyo.androiduitips.databinding.EpoxyContributorsBinding
-import www.rozkey59.tokyo.androiduitips.main.ui.other.UiData
+import www.rozkey59.tokyo.androiduitips.main.ui.other.ListData
 
 @SuppressLint("NonConstantResourceId")
 @EpoxyModelClass(layout = R.layout.epoxy_contributors)
 abstract class ContributorsModel: DataBindingModel<EpoxyContributorsBinding>() {
 
     @EpoxyAttribute
-    lateinit var uiData: UiData
+    lateinit var listData: ListData
 
     @EpoxyAttribute(DoNotHash)
     var onRootClickListener: View.OnClickListener? = null
 
     override fun bind(binding: EpoxyContributorsBinding, context: Context) {
         binding.apply {
-            name.text = uiData.name
+            name.text = listData.name
             Glide.with(context)
-                .load(uiData.userUrl)
+                .load(listData.userUrl)
                 .centerCrop()
                 .into(icon)
             root.setOnClickListener(onRootClickListener)

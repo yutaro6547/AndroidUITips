@@ -11,28 +11,32 @@ import com.bumptech.glide.Glide
 import www.rozkey59.tokyo.androiduitips.R
 import www.rozkey59.tokyo.androiduitips.core.ui.epoxy.DataBindingModel
 import www.rozkey59.tokyo.androiduitips.databinding.EpoxyListRowBinding
-import www.rozkey59.tokyo.androiduitips.main.ui.other.UiData
+import www.rozkey59.tokyo.androiduitips.main.ui.other.ListData
 
 @SuppressLint("NonConstantResourceId")
 @EpoxyModelClass(layout = R.layout.epoxy_list_row)
 abstract class ListRowModel: DataBindingModel<EpoxyListRowBinding>() {
 
     @EpoxyAttribute
-    lateinit var uiData: UiData
+    lateinit var listData: ListData
+
+    @JvmField
+    @EpoxyAttribute
+    var isChanged: Boolean = false
 
     @EpoxyAttribute(DoNotHash)
-    var cardClickListener: View.OnClickListener? = null
+    var onRootClicked: View.OnClickListener? = null
 
     override fun bind(binding: EpoxyListRowBinding, context: Context) {
         binding.apply {
             label.visibility = View.GONE
-            name.text = uiData.name
-            description.text = uiData.description ?: "No Description."
+            name.text = listData.name
+            description.text = listData.description ?: "No Description."
             Glide.with(context)
-                .load(uiData.userUrl)
+                .load(listData.userUrl)
                 .centerCrop()
                 .into(userIcon)
-            root.setOnClickListener(cardClickListener)
+            root.setOnClickListener(onRootClicked)
         }
     }
 
@@ -42,7 +46,7 @@ abstract class ListRowModel: DataBindingModel<EpoxyListRowBinding>() {
         previouslyBoundModel: EpoxyModel<*>?
     ) {
         if (previouslyBoundModel !is ListRowModel) return
-        if (previouslyBoundModel.uiData.issueEventsUrl == uiData.issueEventsUrl) {
+        if (previouslyBoundModel.isChanged == isChanged) {
             bind(binding, context)
             return
         }
@@ -54,5 +58,6 @@ abstract class ListRowModel: DataBindingModel<EpoxyListRowBinding>() {
 
     override fun unbind(binding: EpoxyListRowBinding) {
         binding.root.setOnClickListener(null)
+        binding.userIcon.setImageDrawable(null)
     }
 }
