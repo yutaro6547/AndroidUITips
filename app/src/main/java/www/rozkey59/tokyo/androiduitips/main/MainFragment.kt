@@ -49,6 +49,7 @@ class MainFragment: Fragment() {
         if (navController.currentDestination?.id != R.id.mainFragment) return
         when(id) {
             0 -> navController.navigate(MainFragmentDirections.actionMainFragmentToListFragment())
+            1 -> navController.navigate(MainFragmentDirections.actionMainFragmentToStickyListFragment())
             else -> Toast.makeText(requireContext(), "Not implements.", Toast.LENGTH_SHORT).show()
         }
     }

@@ -11,9 +11,16 @@
     <action
         android:id="@+id/action_mainFragment_to_listFragment"
         app:destination="@id/listFragment" />
+    <action
+        android:id="@+id/action_mainFragment_to_stickyListFragment"
+        app:destination="@id/stickyListFragment" />
   </fragment>
   <fragment
       android:id="@+id/listFragment"
       android:name="www.rozkey59.tokyo.androiduitips.main.ui.list.ListFragment"
       android:label="ListFragment" />
+  <fragment
+      android:id="@+id/stickyListFragment"
+      android:name="www.rozkey59.tokyo.androiduitips.main.ui.sticky.StickyListFragment"
+      android:label="StickyListFragment" />
 </navigation>
