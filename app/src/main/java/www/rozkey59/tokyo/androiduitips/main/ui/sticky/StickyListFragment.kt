@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.airbnb.epoxy.TypedEpoxyController
 import com.airbnb.epoxy.stickyheader.StickyHeaderLinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import www.rozkey59.tokyo.androiduitips.core.ui.other.UiState
 import www.rozkey59.tokyo.androiduitips.databinding.FragmentStickyListBinding
 import www.rozkey59.tokyo.androiduitips.main.ui.model.StickyHeaderModel_
@@ -17,11 +18,14 @@ import www.rozkey59.tokyo.androiduitips.main.ui.model.stickyHeader
 import www.rozkey59.tokyo.androiduitips.main.ui.other.ListData
 import www.rozkey59.tokyo.androiduitips.main.ui.other.UiData
 import java.lang.IllegalArgumentException
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class StickyListFragment: Fragment() {
 
     private lateinit var binding: FragmentStickyListBinding
-    private lateinit var viewModel: StickyListViewModel
+    @Inject
+    lateinit var viewModel: StickyListViewModel
     private lateinit var stickyHeaderController: TypedEpoxyController<List<ListData>>
 
     override fun onCreateView(
@@ -39,7 +43,6 @@ class StickyListFragment: Fragment() {
     }
 
     private fun setUp() {
-        viewModel = StickyListViewModel()
         stickyHeaderController = object : TypedEpoxyController<List<ListData>>() {
             override fun buildModels(data: List<ListData>) {
                 data.forEach {
