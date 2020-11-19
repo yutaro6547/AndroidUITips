@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.ModelCollector
+import dagger.hilt.android.AndroidEntryPoint
 import www.rozkey59.tokyo.androiduitips.core.ui.other.DisableSnapHelperCarouselBuilder
 import www.rozkey59.tokyo.androiduitips.core.ui.other.DisableSnapHelperCarouselModel_
 import www.rozkey59.tokyo.androiduitips.core.ui.other.SpeedConstraintGridLayoutManager
@@ -20,11 +21,14 @@ import www.rozkey59.tokyo.androiduitips.main.ui.model.grid
 import www.rozkey59.tokyo.androiduitips.main.ui.model.listRow
 import www.rozkey59.tokyo.androiduitips.main.ui.other.UiData
 import java.lang.IllegalArgumentException
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class ListFragment: Fragment() {
 
     private lateinit var binding: FragmentListBinding
-    private lateinit var viewModel: ListViewModel
+    @Inject
+    lateinit var viewModel: ListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,7 +45,6 @@ class ListFragment: Fragment() {
     }
 
     private fun setUp() {
-        viewModel = ListViewModel()
         binding.apply {
             recyclerView.itemAnimator = null
             recyclerView.layoutManager = SpeedConstraintGridLayoutManager(requireContext(), SPAN_COUNT)
