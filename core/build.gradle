@@ -1,42 +1,34 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
 apply plugin: 'kotlin-kapt'
-apply plugin: "androidx.navigation.safeargs.kotlin"
-apply plugin: 'dagger.hilt.android.plugin'
 
-android {
-    compileSdkVersion 29
-    defaultConfig {
-        applicationId "www.rozkey59.tokyo.androiduitips"
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+sourceCompatibility = "7"
+targetCompatibility = "7"
+
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+    dependencies {
+        classpath libs.kotlin.plugin
     }
-    android {
-        compileOptions {
-            sourceCompatibility 1.8
-            targetCompatibility 1.8
-        }
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
-    dataBinding {
-        enabled = true
-    }
-    kapt {
-        correctErrorTypes = true
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation libs.kotlin.stdlib
     implementation libs.androidx.appcompat
     implementation libs.androidx.core
@@ -70,8 +62,4 @@ dependencies {
     implementation libs.timber
     implementation libs.stetho
     implementation libs.playServiseBase
-
-    testImplementation libs.junit
-    androidTestImplementation libs.runner
-    androidTestImplementation libs.espressoCore
 }

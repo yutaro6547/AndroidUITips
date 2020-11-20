@@ -1,0 +1,35 @@
+package www.rozkey59.tokyo.core.ui.epoxy
+
+import android.content.Context
+import androidx.databinding.ViewDataBinding
+import com.airbnb.epoxy.EpoxyModel
+import com.airbnb.epoxy.EpoxyModelWithHolder
+
+abstract class DataBindingModel<in T : ViewDataBinding> : EpoxyModelWithHolder<www.rozkey59.tokyo.core.ui.epoxy.DataBindingEpoxyHolder>() {
+
+    abstract fun bind(binding: T, context: Context)
+
+    abstract fun bind(binding: T, context: Context, previouslyBoundModel: EpoxyModel<*>?)
+
+    abstract fun unbind(binding: T)
+
+    @Suppress("UNCHECKED_CAST")
+    override fun bind(holder: www.rozkey59.tokyo.core.ui.epoxy.DataBindingEpoxyHolder) {
+        val binding = holder.binding as? T ?: return
+        val context = binding.root.context
+        bind(binding, context)
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    override fun bind(holder: www.rozkey59.tokyo.core.ui.epoxy.DataBindingEpoxyHolder, previouslyBoundModel: EpoxyModel<*>) {
+        val binding = holder.binding as? T ?: return
+        val context = binding.root.context
+        bind(binding, context, previouslyBoundModel)
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    override fun unbind(holder: www.rozkey59.tokyo.core.ui.epoxy.DataBindingEpoxyHolder) {
+        val binding = holder.binding as? T ?: return
+        unbind(binding)
+    }
+}

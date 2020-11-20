@@ -6,7 +6,7 @@
 
   <fragment
       android:id="@+id/mainFragment"
-      android:name="www.rozkey59.tokyo.androiduitips.main.MainFragment"
+      android:name="www.rozkey59.tokyo.main.ui.presentation.main.MainFragment"
       android:label="fragment_main" >
     <action
         android:id="@+id/action_mainFragment_to_listFragment"
@@ -17,10 +17,10 @@
   </fragment>
   <fragment
       android:id="@+id/listFragment"
-      android:name="www.rozkey59.tokyo.androiduitips.main.ui.list.ListFragment"
+      android:name="www.rozkey59.tokyo.main.ui.presentation.list.ListFragment"
       android:label="ListFragment" />
   <fragment
       android:id="@+id/stickyListFragment"
-      android:name="www.rozkey59.tokyo.androiduitips.main.ui.sticky.StickyListFragment"
+      android:name="www.rozkey59.tokyo.main.ui.presentation.sticky.StickyListFragment"
       android:label="StickyListFragment" />
 </navigation>
