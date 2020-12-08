@@ -19,6 +19,11 @@ import www.rozkey59.tokyo.androiduitips.main.ui.other.ListData
 import www.rozkey59.tokyo.androiduitips.main.ui.other.UiData
 import java.lang.IllegalArgumentException
 import javax.inject.Inject
+import www.rozkey59.tokyo.androiduitips.core.ui.other.UiState.LOADING
+import www.rozkey59.tokyo.androiduitips.core.ui.other.UiState.ERROR
+import www.rozkey59.tokyo.androiduitips.core.ui.other.UiState.IDEAL
+import www.rozkey59.tokyo.androiduitips.core.ui.other.UiState.BLANK
+import www.rozkey59.tokyo.androiduitips.core.ui.other.UiState.PARTIAL
 
 @AndroidEntryPoint
 class StickyListFragment: Fragment() {
@@ -81,14 +86,14 @@ class StickyListFragment: Fragment() {
 
     private fun updateViews(uiState: UiState, data: UiData?) {
         when(uiState) {
-            UiState.BLANK, UiState.PARTIAL -> Unit
-            UiState.ERROR -> {
+            BLANK, PARTIAL -> Unit
+            ERROR -> {
                 binding.progressBar.visibility = View.GONE
             }
-            UiState.LOADING -> {
+            LOADING -> {
                 binding.progressBar.visibility = View.VISIBLE
             }
-            UiState.IDEAL -> {
+            IDEAL -> {
                 val uiData = data ?: throw IllegalArgumentException("Illegal results are being returned. Please review the communication.")
                 binding.progressBar.visibility = View.GONE
                 stickyHeaderController.setData(uiData.list)
